@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sorting Visualizer — dark, simple, aesthetic design system */
+
+@layer base {
+  :root {
+    --background: 230 20% 7%;
+    --foreground: 220 15% 92%;
+
+    --card: 230 18% 10%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 230 18% 10%;
+    --popover-foreground: 220 15% 92%;
+
+    --primary: 175 70% 55%;
+    --primary-foreground: 230 25% 8%;
+
+    --secondary: 230 15% 14%;
+    --secondary-foreground: 220 15% 92%;
+
+    --muted: 230 12% 16%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 270 65% 65%;
+    --accent-foreground: 230 25% 8%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 220 15% 95%;
+
+    --border: 230 15% 18%;
+    --input: 230 15% 16%;
+    --ring: 175 70% 55%;
+
+    --radius: 0.75rem;
+
+    /* Visualizer semantic colors */
+    --bar-default: 200 30% 55%;
+    --bar-compare: 45 95% 60%;
+    --bar-swap: 0 80% 65%;
+    --bar-sorted: 145 60% 55%;
+    --bar-pivot: 270 75% 70%;
+    --bar-active: 175 80% 60%;
+
+    --code-bg: 230 22% 6%;
+    --code-line-active: 45 95% 60%;
+    --code-comment: 220 10% 45%;
+    --code-keyword: 270 65% 70%;
+    --code-string: 145 50% 65%;
+    --code-number: 25 85% 65%;
+
+    --gradient-glow: radial-gradient(ellipse at top, hsl(175 70% 55% / 0.12), transparent 60%);
+    --gradient-panel: linear-gradient(180deg, hsl(230 18% 11%), hsl(230 20% 8%));
+    --shadow-soft: 0 8px 30px -10px hsl(230 30% 2% / 0.6);
+    --shadow-glow: 0 0 24px -4px hsl(175 70% 55% / 0.35);
+
+    --sidebar-background: 230 18% 10%;
+    --sidebar-foreground: 220 15% 92%;
+    --sidebar-primary: 175 70% 55%;
+    --sidebar-primary-foreground: 230 25% 8%;
+    --sidebar-accent: 230 15% 14%;
+    --sidebar-accent-foreground: 220 15% 92%;
+    --sidebar-border: 230 15% 18%;
+    --sidebar-ring: 175 70% 55%;
+  }
+
+  .dark {
+    /* App is dark by default — keep parity */
+    --background: 230 20% 7%;
+    --foreground: 220 15% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  body {
+    background-image: var(--gradient-glow);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .panel {
+    background: var(--gradient-panel);
+    box-shadow: var(--shadow-soft);
+    @apply border border-border rounded-xl;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+
+  .code-font {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
